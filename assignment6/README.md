@@ -1,3 +1,3 @@
-<h1>App Info: </h1>
+<h1>App Info - </h1>
 
-![AScreenshot](https://github.com/mdyasinahmed/livetapp1/blob/main/Screenshot.png)
+![AScreenshot](https://github.com/mdyasinahmed/app_assignment/blob/main/assignment6/screenshot.png)
