@@ -18,8 +18,6 @@ class PhotoGalleryApp extends StatelessWidget {
 }
 
 class PhotoGalleryHomePage extends StatelessWidget {
-  get leading => null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +46,7 @@ class PhotoGalleryHomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(16.0),
               child: GridView.builder(
+                shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
