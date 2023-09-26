@@ -26,13 +26,10 @@ class _ProductListState extends State<ProductList> {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              int totalProductsBought = products
-                  .map((product) => product.count)
-                  .reduce((a, b) => a + b);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CartPage(totalProductsBought: totalProductsBought),
+                  builder: (context) => CartPage(products: products),
                 ),
               );
             },
@@ -75,6 +72,17 @@ class _ProductListState extends State<ProductList> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CartPage(products: products),
+            ),
+          );
+        },
+        child: Icon(Icons.shopping_cart),
+      ),
     );
   }
 }
@@ -107,18 +115,32 @@ class BuyButton extends StatelessWidget {
 }
 
 class CartPage extends StatelessWidget {
-  final int totalProductsBought;
+  final List<Product> products;
 
-  CartPage({required this.totalProductsBought});
+  CartPage({required this.products});
 
   @override
   Widget build(BuildContext context) {
+    int totalProductsBought = products.fold(0, (sum, product) => sum + product.count);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart Page'),
       ),
-      body: Center(
-        child: Text('Total Products Bought: $totalProductsBought'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Total Products Bought: $totalProductsBought'),
+          SizedBox(height: 20),
+          Text('Products in Cart:'),
+          for (var product in products)
+            if (product.count > 0)
+              ListTile(
+                title: Text('${product.name} (${product.count})'),
+                subtitle: Text('\$${(product.price * product.count).toStringAsFixed(2)}'),
+              ),
+        ],
       ),
     );
   }
