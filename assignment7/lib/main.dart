@@ -14,6 +14,15 @@ class _ProductListState extends State<ProductList> {
     Product(name: 'Product 1', price: 10),
     Product(name: 'Product 2', price: 20),
     Product(name: 'Product 3', price: 30),
+    Product(name: 'Product 4', price: 40),
+    Product(name: 'Product 5', price: 50),
+    Product(name: 'Product 6', price: 60),
+    Product(name: 'Product 7', price: 70),
+    Product(name: 'Product 8', price: 80),
+    Product(name: 'Product 9', price: 90),
+    Product(name: 'Product 10', price: 100),
+    Product(name: 'Product 11', price: 110),
+    Product(name: 'Product 12', price: 120),
     // Add more products as needed
   ];
 
