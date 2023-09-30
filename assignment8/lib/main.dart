@@ -63,16 +63,6 @@ class PortraitProfile extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          ),
-        ),
         GalleryGrid(),
       ],
     );
@@ -101,17 +91,6 @@ class LandscapeProfile extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
             ],
           ),
         ),
@@ -130,14 +109,26 @@ class GalleryGrid extends StatelessWidget {
       crossAxisCount: 3,
       itemCount: 6, // 2 rows x 3 columns
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/gallery_image$index.jpg'),
-              fit: BoxFit.cover,
+        if (index == 0) {
+          return Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/gallery_image0.jpg'),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
             ),
-          ),
-        );
+          );
+        } else {
+          return Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/gallery_image$index.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        }
       },
       staggeredTileBuilder: (int index) =>
           StaggeredTile.count(1, index.isEven ? 1.5 : 1.0),
