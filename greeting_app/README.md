@@ -24,10 +24,10 @@ This project is a starting point for a Flutter application.
 ## Screenshots
 
 ### Before Pressing the Button
-![Before Pressing Button](app_screenshots/action_1.png)
+<img src="app_screenshots/action_1.png" alt="Before Pressing Button" width="300" height="600">
 
 ### After Pressing the Button
-![After Pressing Button](app_screenshots/action_2.png)
+<img src="app_screenshots/action_2.png" alt="Before Pressing Button" width="300" height="600">
 
 ## Code
 
